@@ -2,8 +2,13 @@ html,
 body {
   padding: 0;
   margin: 0;
+  height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: #240140;
+  background: linear-gradient(180deg, #10001b 1%, rgba(36, 1, 65, 1) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 a {

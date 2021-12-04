@@ -1,0 +1,182 @@
+.cryptoData {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 5rem;
+
+  .coinRow {
+    display: flex;
+    align-items: center;
+    padding-inline: 2rem;
+    width: 60rem;
+    height: 4.25rem;
+    border: 1px solid blueviolet;
+    border-radius: 2.5rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0px 0px 2px 1px purple;
+
+    &:hover {
+      background-color: #9a03ff1e;
+    }
+
+    .coin {
+      width: 40%;
+      display: flex;
+      align-items: center;
+      margin-right: 10%;
+
+      .left {
+        display: flex;
+        align-items: center;
+        width: 80%;
+
+        img {
+          height: 2.5rem;
+          margin-right: 2rem;
+        }
+
+        h3 {
+          margin: 0;
+          color: white;
+          font-weight: normal;
+          font-family: "Poppins", sans-serif;
+        }
+      }
+
+      p {
+        text-transform: uppercase;
+        color: white;
+        font-family: "Poppins", sans-serif;
+      }
+    }
+
+    .coinData {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .coinPrice {
+        text-align: start;
+        width: 40%;
+        margin: 0;
+        color: white;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .coinVolume {
+        width: 50%;
+        margin: 0;
+        color: white;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .positive {
+        width: 10%;
+        margin: 0;
+        color: lime;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .negative {
+        margin: 0;
+        color: red;
+        font-family: "Poppins", sans-serif;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .coinRow {
+    width: 45rem !important;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .coinRow {
+    width: 35rem !important;
+
+    .coin {
+      .left {
+        img {
+          height: 2rem !important;
+        }
+
+        h3 {
+          font-size: 12px !important;
+        }
+      }
+
+      p {
+        font-size: 12px !important;
+      }
+    }
+
+    .coinData {
+      .coinPrice {
+        font-size: 12px !important;
+      }
+
+      .coinVolume {
+        font-size: 12px !important;
+      }
+
+      .positive {
+        font-size: 12px !important;
+      }
+
+      .negative {
+        font-size: 12px !important;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 675px) {
+  .coinRow {
+    width: 17.5rem !important;
+    padding-inline: 1rem !important;
+
+    .coin {
+      margin-right: 0.5rem !important;
+      .left {
+        width: 80% !important;
+        img {
+          height: 1rem !important;
+          margin-right: 0.5rem !important;
+        }
+
+        h3 {
+          font-size: 8px !important;
+        }
+      }
+
+      p {
+        font-size: 8px !important;
+      }
+    }
+
+    .coinData {
+      .coinPrice {
+        width: 40% !important;
+        font-size: 8px !important;
+      }
+
+      .coinVolume {
+        width: 60% !important;
+        font-size: 8px !important;
+      }
+
+      .positive {
+        width: 10% !important;
+        font-size: 8px !important;
+      }
+
+      .negative {
+        width: 10% !important;
+        font-size: 8px !important;
+      }
+    }
+  }
+}

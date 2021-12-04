@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+.navbar {
+  padding: 5rem;
+  padding-inline: 10rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: whitesmoke;
+      margin-right: 0.5rem;
+    }
+
+    .name {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      font-weight: 300;
+      font-size: 1.25rem;
+      color: white;
+    }
+  }
+
+  .navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ul {
+      margin: 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      a {
+        text-decoration: none;
+        li {
+          color: white;
+          font-family: "Poppins", sans-serif;
+          font-size: 1.25em;
+          font-weight: 300;
+          margin-inline: 1rem;
+          border-bottom: 2px solid transparent;
+        }
+
+        &:hover {
+          li {
+            border-bottom-color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .navbar {
+    padding-inline: 5rem !important;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .navbar {
+    padding-inline: 2.5rem !important;
+
+    .left {
+      .logo {
+        width: 30px !important;
+        height: 30px !important;
+      }
+
+      .name {
+        font-size: 1rem !important;
+      }
+    }
+
+    .navigation {
+      ul {
+        padding: 0 !important;
+        a {
+          li {
+            font-size: 1rem !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 675px) {
+  .navbar {
+    padding: 2rem !important;
+    padding-inline: 1rem !important;
+    flex-direction: column;
+
+    .left {
+      margin-bottom: 1rem !important;
+      .logo {
+        width: 15px !important;
+        height: 15px !important;
+      }
+
+      .name {
+        font-size: 12px !important;
+      }
+    }
+
+    .navigation {
+      ul {
+        a {
+          li {
+            font-size: 12px !important;
+          }
+        }
+      }
+    }
+  }
+}

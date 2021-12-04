@@ -1,0 +1,60 @@
+.exchange {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .Img {
+    position: absolute !important;
+  }
+
+  .titleBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 7.5rem;
+
+    .title {
+      margin: 0;
+      margin-bottom: 0.5rem;
+      font-size: 60px;
+      font-family: "Poppins", sans-serif;
+      font-weight: bolder;
+      color: white;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 24px;
+      font-family: "Poppins", sans-serif;
+      font-weight: lighter;
+      color: white;
+    }
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .title {
+    font-size: 52px !important;
+  }
+
+  .subtitle {
+    font-size: 20px !important;
+  }
+}
+
+@media only screen and (max-width: 675px) {
+  .titleBox {
+    margin-bottom: 2.5rem !important;
+  }
+
+  .title {
+    font-size: 32px !important;
+  }
+
+  .subtitle {
+    width: 17.5rem;
+    text-align: center;
+    font-size: 16px !important;
+  }
+}
