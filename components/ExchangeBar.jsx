@@ -22,8 +22,6 @@ import axios from "axios";
 const ExchangeBar = ({ setContinue, values, setValues }) => {
   const router = useRouter();
 
-  const { success, cancelled, sessionId } = router.query;
-
   const [imgs] = useState({
     BTC: btc,
     ETH: eth,
@@ -77,29 +75,6 @@ const ExchangeBar = ({ setContinue, values, setValues }) => {
       setButtonEnabled(false);
     }
   }, [values]);
-
-  useEffect(async () => {
-    if (success !== undefined || cancelled !== undefined) {
-      if (success) {
-        if (sessionId !== undefined) {
-          const data = await axios.post(
-            "/api/check_session",
-            {
-              id: sessionId,
-            },
-            {
-              headers: {
-                "Content-Type": "application/json",
-              },
-            }
-          );
-        }
-        console.log("Successful transaction");
-      } else {
-        console.log("Transaction cancelled");
-      }
-    }
-  }, [success, cancelled]);
 
   return (
     <div className={styles.exchangeBar}>
