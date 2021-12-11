@@ -1,0 +1,29 @@
+@media only screen and (max-width: 1050px) {
+  .title {
+    font-size: 52px !important;
+  }
+
+  .subtitle {
+    font-size: 20px !important;
+  }
+}
+
+@media only screen and (max-width: 675px) {
+  .imgDiv {
+    padding-inline: 2rem !important;
+  }
+
+  .titleBox {
+    margin-bottom: 2.5rem !important;
+  }
+
+  .title {
+    font-size: 32px !important;
+  }
+
+  .subtitle {
+    width: 17.5rem;
+    text-align: center;
+    font-size: 16px !important;
+  }
+}

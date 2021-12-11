@@ -9,6 +9,13 @@ body {
   background: linear-gradient(180deg, #10001b 1%, rgba(36, 1, 65, 1) 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 a {

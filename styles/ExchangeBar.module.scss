@@ -1,9 +1,18 @@
 .exchangeBar {
+  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 3rem;
+  padding-bottom: 25rem;
+
+  h1 {
+    margin: 0;
+    margin-bottom: 4rem;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 36px;
+  }
 
   .warningText {
     margin: 0;

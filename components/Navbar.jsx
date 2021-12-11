@@ -6,7 +6,7 @@ const Navbar = () => {
     <div className={styles.navbar}>
       <div className={styles.left}>
         <div className={styles.logo} />
-        <h2 className={styles.name}>Exchange Name</h2>
+        <h2 className={styles.name}>KepBit</h2>
       </div>
       <div className={styles.navigation}>
         <ul>
@@ -14,7 +14,7 @@ const Navbar = () => {
             <li>How It Works</li>
           </a>
           <a href="#About">
-            <li>About Us</li>
+            <li>Contact Us</li>
           </a>
           <a href="#FAQ">
             <li>FAQ</li>

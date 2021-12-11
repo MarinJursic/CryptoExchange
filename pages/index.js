@@ -3,8 +3,18 @@ import Navbar from "../components/Navbar";
 import styles from "../styles/Home.module.scss";
 import Exchange from "../components/Exchange";
 import CryptoData from "../components/CryptoData";
+import ExchangeBar from "../components/ExchangeBar";
+import { useState } from "react";
 
 export default function Home(props) {
+  const [Continue, setContinue] = useState(false);
+
+  const [values, setValues] = useState({
+    crypto: "BTC",
+    amount: undefined,
+    wallet: "",
+  });
+
   return (
     <div className={styles.container}>
       <Head>
@@ -13,8 +23,17 @@ export default function Home(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <Exchange />
+      <Exchange
+        setContinue={setContinue}
+        values={values}
+        setValues={setValues}
+      />
       <CryptoData data={props} />
+      <ExchangeBar
+        setContinue={setContinue}
+        values={values}
+        setValues={setValues}
+      />
     </div>
   );
 }

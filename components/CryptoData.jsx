@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import styles from "../styles/CryptoData.module.scss";
+import btc from "../public/btc.svg";
+import bch from "../public/bch.svg";
+import Image from "next/dist/client/image";
 
 const CryptoData = ({ data }) => {
   const [coins, setCoins] = useState(undefined);
@@ -10,6 +13,14 @@ const CryptoData = ({ data }) => {
 
   return (
     <div className={styles.cryptoData}>
+      <div className={styles.imgDiv}>
+        <div className={styles.opacity}>
+          <Image src={btc} alt="ltc" width={400} height={400} />
+        </div>
+        <div className={styles.opacity}>
+          <Image src={bch} alt="ltc" width={400} height={400} />
+        </div>
+      </div>
       {coins !== undefined &&
         coins.map((coin) => (
           <div className={styles.coinRow}>

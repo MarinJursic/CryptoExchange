@@ -6,6 +6,7 @@ import {
   InputAdornment,
   Popover,
   Typography,
+  formControlClasses,
 } from "@mui/material";
 import { useState } from "react";
 import { BsFillInfoCircleFill } from "react-icons/bs";
@@ -14,8 +15,15 @@ import eth from "../public/eth.svg";
 import ltc from "../public/ltc.svg";
 import bch from "../public/bch.svg";
 import Image from "next/image";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import axios from "axios";
 
-const ExchangeBar = () => {
+const ExchangeBar = ({ setContinue, values, setValues }) => {
+  const router = useRouter();
+
+  const { success, cancelled, sessionId } = router.query;
+
   const [imgs] = useState({
     BTC: btc,
     ETH: eth,
@@ -23,13 +31,8 @@ const ExchangeBar = () => {
     BCH: bch,
   });
 
-  const [values, setValues] = useState({
-    crypto: "BTC",
-    amount: undefined,
-    wallet: "",
-  });
-
   const [anchorEl, setAnchorEl] = useState(null);
+  const [buttonEnabled, setButtonEnabled] = useState(false);
 
   const handlePopoverOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -42,22 +45,65 @@ const ExchangeBar = () => {
   const open = Boolean(anchorEl);
 
   const validateAmount = () => {
-    if (values.amount >= 25 && values.amount <= 1000) {
-      setValues({ ...values, amount: parseFloat(values.amount).toFixed(2) });
+    if (values.amount >= 5 && values.amount <= 300) {
+      setValues({
+        ...values,
+        amount: Math.round(parseFloat(values.amount).toFixed(2)).toFixed(2),
+      });
       return;
-    } else if (values.amount > 1000) {
-      setValues({ ...values, amount: parseFloat(1000).toFixed(2) });
+    } else if (values.amount > 300) {
+      setValues({
+        ...values,
+        amount: Math.round(parseFloat(300).toFixed(2)).toFixed(2),
+      });
     } else {
       setValues({ ...values, amount: undefined });
     }
   };
 
+  const handleSubmit = () => {
+    if (values.amount !== undefined && values.wallet !== "") {
+      setContinue(true);
+    }
+  };
   const handleChange = (prop) => (e) => {
     setValues({ ...values, [prop]: e.target.value });
   };
 
+  useEffect(() => {
+    if (values.amount !== undefined && values.wallet !== "") {
+      setButtonEnabled(true);
+    } else {
+      setButtonEnabled(false);
+    }
+  }, [values]);
+
+  useEffect(async () => {
+    if (success !== undefined || cancelled !== undefined) {
+      if (success) {
+        if (sessionId !== undefined) {
+          const data = await axios.post(
+            "/api/check_session",
+            {
+              id: sessionId,
+            },
+            {
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+        }
+        console.log("Successful transaction");
+      } else {
+        console.log("Transaction cancelled");
+      }
+    }
+  }, [success, cancelled]);
+
   return (
     <div className={styles.exchangeBar}>
+      <h1 id="exchange">Exchange</h1>
       <h4 className={styles.warningText}>
         When exchanging make sure your wallet supports the currency you are
         exchanging to, otherwise your currency might get lost
@@ -78,7 +124,6 @@ const ExchangeBar = () => {
             className={styles.sel}
           >
             <MenuItem value={"BTC"}>BTC</MenuItem>
-            <MenuItem value={"ETH"}>ETH</MenuItem>
             <MenuItem value={"BCH"}>BCH</MenuItem>
             <MenuItem value={"LTC"}>LTC</MenuItem>
           </Select>
@@ -140,7 +185,22 @@ const ExchangeBar = () => {
           </Popover>
         </div>
       </div>
-      <button type="submit">Exchange</button>
+      <form
+        action={buttonEnabled ? "/api/checkout_sessions" : null}
+        method="POST"
+      >
+        <input type="hidden" value={values.crypto} name="item" />
+        <input type="hidden" value={values.amount} name="amount" />
+        <input type="hidden" value={values.wallet} name="wallet" />
+        <button
+          type="submit"
+          onClick={handleSubmit}
+          disabled={buttonEnabled ? false : true}
+          style={buttonEnabled ? null : { opacity: 0.25 }}
+        >
+          Exchange
+        </button>
+      </form>
     </div>
   );
 };
