@@ -28,6 +28,7 @@ export default async function handler(req, res) {
         metadata: {
           wallet: wallet,
           amount: amount,
+          crypto: item,
         },
       });
       res.redirect(303, session.url);
