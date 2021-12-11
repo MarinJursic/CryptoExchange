@@ -53,8 +53,7 @@ export default async function handler(req, res) {
           });
         });
         await new Promise((resolve) => setTimeout(resolve, 2000));
-        let cryptoAmount = amount / 100 - (amount / 100) * 0.11;
-        cryptoAmount = cryptoAmount / price;
+        let cryptoAmount = amount / price;
         var args = {
           to: wallet,
           amount: `${cryptoAmount.toFixed(8)}`,
