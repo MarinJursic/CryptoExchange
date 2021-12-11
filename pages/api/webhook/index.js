@@ -33,8 +33,6 @@ export default async function handler(req, res) {
       if (event.type === "checkout.session.completed") {
         let { amount, wallet, crypto } = event.data.object.metadata;
 
-        amount = amount * 100;
-
         console.log("Amount: " + amount);
 
         let price = 0;
