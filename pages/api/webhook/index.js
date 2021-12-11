@@ -32,6 +32,10 @@ export default async function handler(req, res) {
 
       if (event.type === "checkout.session.completed") {
         const { amount, wallet, crypto } = event.data.metadata;
+        console.log(amount);
+        console.log(wallet);
+        console.log(crypto);
+        /*
         let price = 0;
         client.getBuyPrice(
           { currencyPair: `${crypto}-USD` },
@@ -61,7 +65,7 @@ export default async function handler(req, res) {
         console.log("Amount: " + args.amount);
         console.log("Currency: " + args.currency);
 
-        /*
+        
 
         account.sendMoney(args, function (err, txn) {
           console.log("Error: " + err);
