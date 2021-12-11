@@ -31,10 +31,7 @@ export default async function handler(req, res) {
       );
 
       if (event.type === "checkout.session.completed") {
-        const { amount, wallet, crypto } = event.data.metadata;
-        console.log(amount);
-        console.log(wallet);
-        console.log(crypto);
+        console.log(event.data.metadata);
         /*
         let price = 0;
         client.getBuyPrice(
