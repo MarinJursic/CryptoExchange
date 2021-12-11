@@ -24,7 +24,7 @@ export default async function handler(req, res) {
       );
 
       if (event.type === "checkout.session.completed") {
-        console.log(event);
+        console.log("Payment Recieved: " + event);
       } else {
         console.warn("Unhandled event type");
       }
