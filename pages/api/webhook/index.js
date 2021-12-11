@@ -31,7 +31,7 @@ export default async function handler(req, res) {
       );
 
       if (event.type === "checkout.session.completed") {
-        console.log(event);
+        console.log(event.data.object.metadata);
         /*
         let price = 0;
         client.getBuyPrice(
